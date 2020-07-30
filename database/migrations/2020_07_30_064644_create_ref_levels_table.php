@@ -15,7 +15,8 @@ class CreateRefLevelsTable extends Migration
     {
         Schema::create('ref_levels', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

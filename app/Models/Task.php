@@ -6,18 +6,21 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class RefCategory
+ * Class Task
  * @package App\Models
- * @version July 30, 2020, 11:13 pm UTC
+ * @version July 31, 2020, 11:59 am UTC
  *
- * @property string $name
+ * @property string $title
+ * @property string $intruction
+ * @property integer $user_id
+ * @property integer $reward_points
  */
-class RefCategory extends Model
+class Task extends Model
 {
     use SoftDeletes;
 
-    public $table = 'ref_categories';
-
+    public $table = 'tasks';
+    
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -27,10 +30,10 @@ class RefCategory extends Model
 
 
     public $fillable = [
-        'name',
+        'title',
+        'intruction',
         'user_id',
-        'referral_visits',
-        'referral_count',
+        'reward_points'
     ];
 
     /**
@@ -40,11 +43,10 @@ class RefCategory extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'name' => 'string',
+        'title' => 'string',
+        'intruction' => 'string',
         'user_id' => 'integer',
-        'referral_visits' => 'integer',
-        'referral_count' => 'integer',
-
+        'reward_points' => 'integer'
     ];
 
     /**
@@ -53,8 +55,10 @@ class RefCategory extends Model
      * @var array
      */
     public static $rules = [
-        'name' => 'required'
+        'title' => 'required',
+        'user_id' => 'required',
+        'reward_points' => 'required'
     ];
 
-
+    
 }

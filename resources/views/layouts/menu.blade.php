@@ -14,3 +14,7 @@
     <a href="{{ route('refCategories.index') }}"><i class="fa fa-edit"></i><span>Ref Categories</span></a>
 </li>
 
+<li class="{{ Request::is('tasks*') ? 'active' : '' }}">
+    <a href="{{ route('tasks.index') }}"><i class="fa fa-edit"></i><span>Tasks</span></a>
+</li>
+

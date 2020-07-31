@@ -3,11 +3,9 @@
         <thead>
             <tr>
                 <th>Name</th>
-        <th>Description</th>
-        <th>Reward</th>
-        <th>Congratulatory Message</th>
-        <th>Target No Refferals</th>
-        <th>Point Per Referral</th>
+                <th>Refferal Url</th>
+                <th>Visited</th>
+                <th>Signups</th>
                 <th colspan="3">Action</th>
             </tr>
         </thead>
@@ -15,11 +13,10 @@
         @foreach($refCategories as $refCategory)
             <tr>
                 <td>{{ $refCategory->name }}</td>
-            <td>{{ $refCategory->description }}</td>
-            <td>{{ $refCategory->reward }}</td>
-            <td>{{ $refCategory->congratulatory_message }}</td>
-            <td>{{ $refCategory->target_no_refferals }}</td>
-            <td>{{ $refCategory->point_per_referral }}</td>
+                <td>{{ route('refs.user',['user_id'=> Auth::user()->id, 'ref_category_id'=> $refCategory->id]) }}</td>
+                <td>{{ $refCategory->referral_count }}</td>
+                <td>{{ $refCategory->referral_visits }}</td>
+
                 <td>
                     {!! Form::open(['route' => ['refCategories.destroy', $refCategory->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

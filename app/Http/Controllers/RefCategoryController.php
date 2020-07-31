@@ -6,8 +6,10 @@ use App\Http\Requests\CreateRefCategoryRequest;
 use App\Http\Requests\UpdateRefCategoryRequest;
 use App\Repositories\RefCategoryRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Models\RefCategory;
 use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Support\Facades\Auth;
 use Response;
 
 class RefCategoryController extends AppBaseController
@@ -35,6 +37,31 @@ class RefCategoryController extends AppBaseController
             ->with('refCategories', $refCategories);
     }
 
+    public function refs($user_id = null, $ref_category_id = null){
+
+                if(!$user_id){
+                    return redirect(route('/login'));
+                }
+
+                if($ref_category_id){
+
+                    $refCategory = RefCategory::where('id', $ref_category_id)->first();
+
+                 RefCategory::where('id', $ref_category_id)->update([
+                        'referral_visits' => $refCategory->referral_visits + 1,
+                        'referral_count' => $refCategory->referral_count + 1
+
+                    ]);
+                 }
+
+
+
+                return response(route('/register'))
+                ->cookie('referral_user_id',$user_id, 60*24*30*12)
+                ->cookie('referral_user_id',$ref_category_id, 60*24*30*12);
+
+
+    }
     /**
      * Show the form for creating a new RefCategory.
      *
@@ -55,6 +82,7 @@ class RefCategoryController extends AppBaseController
     public function store(CreateRefCategoryRequest $request)
     {
         $input = $request->all();
+        $input['user_id'] = Auth::user()->id;
 
         $refCategory = $this->refCategoryRepository->create($input);
 

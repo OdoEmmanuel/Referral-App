@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class RefLevelRepository
  * @package App\Repositories
- * @version July 30, 2020, 10:45 pm UTC
+ * @version July 30, 2020, 11:13 pm UTC
 */
 
 class RefLevelRepository extends BaseRepository
@@ -17,7 +17,12 @@ class RefLevelRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'name'
+        'name',
+        'description',
+        'reward',
+        'congratulatory_message',
+        'target_no_refferals',
+        'point_per_referral'
     ];
 
     /**

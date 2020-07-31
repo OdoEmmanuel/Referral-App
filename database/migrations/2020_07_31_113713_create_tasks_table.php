@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRefCategoriesTable extends Migration
+class CreateTasksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateRefCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('ref_categories', function (Blueprint $table) {
+        Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('title');
+            $table->longText('intruction')->nullable();
             $table->integer('user_id');
-            $table->integer('referral_visits')->nullable()->default(0);
-            $table->integer('referral_count')->nullable()->default(0);
+            $table->integer('reward_points')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });
@@ -31,6 +31,6 @@ class CreateRefCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ref_categories');
+        Schema::dropIfExists('tasks');
     }
 }

@@ -2,25 +2,25 @@
 
 namespace App\Repositories;
 
-use App\Models\RefCategory;
+use App\Models\Task;
 use App\Repositories\BaseRepository;
 
 /**
- * Class RefCategoryRepository
+ * Class TaskRepository
  * @package App\Repositories
- * @version July 30, 2020, 11:13 pm UTC
+ * @version July 31, 2020, 11:59 am UTC
 */
 
-class RefCategoryRepository extends BaseRepository
+class TaskRepository extends BaseRepository
 {
     /**
      * @var array
      */
     protected $fieldSearchable = [
-        'name',
+        'title',
+        'intruction',
         'user_id',
-        'referral_visits',
-        'referral_count',
+        'reward_points'
     ];
 
     /**
@@ -38,6 +38,6 @@ class RefCategoryRepository extends BaseRepository
      **/
     public function model()
     {
-        return RefCategory::class;
+        return Task::class;
     }
 }

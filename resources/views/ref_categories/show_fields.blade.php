@@ -4,33 +4,3 @@
     <p>{{ $refCategory->name }}</p>
 </div>
 
-<!-- Description Field -->
-<div class="form-group">
-    {!! Form::label('description', 'Description:') !!}
-    <p>{{ $refCategory->description }}</p>
-</div>
-
-<!-- Reward Field -->
-<div class="form-group">
-    {!! Form::label('reward', 'Reward:') !!}
-    <p>{{ $refCategory->reward }}</p>
-</div>
-
-<!-- Congratulatory Message Field -->
-<div class="form-group">
-    {!! Form::label('congratulatory_message', 'Congratulatory Message:') !!}
-    <p>{{ $refCategory->congratulatory_message }}</p>
-</div>
-
-<!-- Target No Refferals Field -->
-<div class="form-group">
-    {!! Form::label('target_no_refferals', 'Target No Refferals:') !!}
-    <p>{{ $refCategory->target_no_refferals }}</p>
-</div>
-
-<!-- Point Per Referral Field -->
-<div class="form-group">
-    {!! Form::label('point_per_referral', 'Point Per Referral:') !!}
-    <p>{{ $refCategory->point_per_referral }}</p>
-</div>
-

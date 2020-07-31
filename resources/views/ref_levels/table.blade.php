@@ -3,6 +3,11 @@
         <thead>
             <tr>
                 <th>Name</th>
+        <th>Description</th>
+        <th>Reward</th>
+        <th>Congratulatory Message</th>
+        <th>Target No Refferals</th>
+        <th>Point Per Referral</th>
                 <th colspan="3">Action</th>
             </tr>
         </thead>
@@ -10,6 +15,11 @@
         @foreach($refLevels as $refLevel)
             <tr>
                 <td>{{ $refLevel->name }}</td>
+            <td>{{ $refLevel->description }}</td>
+            <td>{{ $refLevel->reward }}</td>
+            <td>{{ $refLevel->congratulatory_message }}</td>
+            <td>{{ $refLevel->target_no_refferals }}</td>
+            <td>{{ $refLevel->point_per_referral }}</td>
                 <td>
                     {!! Form::open(['route' => ['refLevels.destroy', $refLevel->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

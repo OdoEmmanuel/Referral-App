@@ -15,7 +15,12 @@ class CreateRefLevelsTable extends Migration
     {
         Schema::create('ref_levels', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->string('name');
+            $table->longText('description')->nullable();
+            $table->string('reward')->nullable();
+            $table->string('congratulatory_message')->nullable();
+            $table->string('target_no_refferals')->nullable();
+            $table->string('point_per_referral')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

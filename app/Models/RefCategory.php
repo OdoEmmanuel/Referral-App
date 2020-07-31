@@ -8,21 +8,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class RefCategory
  * @package App\Models
- * @version July 30, 2020, 10:52 pm UTC
+ * @version July 30, 2020, 11:13 pm UTC
  *
  * @property string $name
- * @property string $description
- * @property string $reward
- * @property string $congratulatory_message
- * @property string $target_no_refferals
- * @property string $point_per_referral
  */
 class RefCategory extends Model
 {
     use SoftDeletes;
 
     public $table = 'ref_categories';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -33,11 +28,9 @@ class RefCategory extends Model
 
     public $fillable = [
         'name',
-        'description',
-        'reward',
-        'congratulatory_message',
-        'target_no_refferals',
-        'point_per_referral'
+        'user_id',
+        'referral_visits',
+        'referral_count',
     ];
 
     /**
@@ -48,11 +41,10 @@ class RefCategory extends Model
     protected $casts = [
         'id' => 'integer',
         'name' => 'string',
-        'description' => 'string',
-        'reward' => 'string',
-        'congratulatory_message' => 'string',
-        'target_no_refferals' => 'string',
-        'point_per_referral' => 'string'
+        'user_id' => 'integer',
+        'referral_visits' => 'integer',
+        'referral_count' => 'integer',
+
     ];
 
     /**
@@ -64,5 +56,5 @@ class RefCategory extends Model
         'name' => 'required'
     ];
 
-    
+
 }

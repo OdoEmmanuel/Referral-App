@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class RefCategoryRepository
  * @package App\Repositories
- * @version July 30, 2020, 10:52 pm UTC
+ * @version July 30, 2020, 11:13 pm UTC
 */
 
 class RefCategoryRepository extends BaseRepository
@@ -18,11 +18,9 @@ class RefCategoryRepository extends BaseRepository
      */
     protected $fieldSearchable = [
         'name',
-        'description',
-        'reward',
-        'congratulatory_message',
-        'target_no_refferals',
-        'point_per_referral'
+        'user_id',
+        'referral_visits',
+        'referral_count',
     ];
 
     /**

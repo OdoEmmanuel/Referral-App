@@ -8,9 +8,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class RefLevel
  * @package App\Models
- * @version July 30, 2020, 10:45 pm UTC
+ * @version July 30, 2020, 11:13 pm UTC
  *
  * @property string $name
+ * @property string $description
+ * @property string $reward
+ * @property string $congratulatory_message
+ * @property string $target_no_refferals
+ * @property string $point_per_referral
  */
 class RefLevel extends Model
 {
@@ -27,7 +32,12 @@ class RefLevel extends Model
 
 
     public $fillable = [
-        'name'
+        'name',
+        'description',
+        'reward',
+        'congratulatory_message',
+        'target_no_refferals',
+        'point_per_referral'
     ];
 
     /**
@@ -37,7 +47,12 @@ class RefLevel extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'name' => 'string'
+        'name' => 'string',
+        'description' => 'string',
+        'reward' => 'string',
+        'congratulatory_message' => 'string',
+        'target_no_refferals' => 'string',
+        'point_per_referral' => 'string'
     ];
 
     /**

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,3 +34,8 @@ Route::resource('roles', 'RoleController');
 Route::resource('refLevels', 'RefLevelController');
 
 Route::resource('refCategories', 'RefCategoryController');
+Route::get('refs/{user_id}/{ref_category_id?}', 'RefCategoryController@refs')->name('refs.user');
+
+
+
+Route::resource('tasks', 'TaskController');
